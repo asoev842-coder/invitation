@@ -1,7 +1,13 @@
-<title>Пригласительное Леонид и Мария</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Приглашение Исмаил и Зухра</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap&subset=cyrillic">
 <style>
+body{margin:0}[hidden]{display:none!important}
+
 /* Layout: вертикальная «открытка» 9:19.5 по центру экрана, сцены накладываются друг на друга и открываются волной снизу вверх.
    Палитра: изумруд, золото, пергамент, тауп конверта. Шрифты: Marck Script (имена, заголовки), Cormorant Garamond (мелкий капс-текст). */
 :root {
@@ -184,6 +190,8 @@ body {
   .scene.active .rise, .s1.active .stem, .s1.active .leaf, .hint { animation-delay: 0s !important; animation-duration: .01s !important; }
 }
 </style>
+</head>
+<body>
 
 <div class="stage" id="stage" aria-label="Пригласительное на свадьбу">
   <!-- Сцена 1 -->
@@ -424,3 +432,5 @@ $("file").addEventListener("change", e => {
 
 drawVines(); drawWreath(); fill();
 </script>
+</body>
+</html>
