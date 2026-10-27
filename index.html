@@ -360,6 +360,13 @@ function drawWreath() {
 
 /* ===== Текст из настроек ===== */
 const $ = id => document.getElementById(id);
+/* Имя гостя берётся из ссылки: ?g=Рустама и его семью */
+(function () {
+  try {
+    const g = (new URLSearchParams(location.search).get("g") || "").trim().replace(/\s+/g, " ").slice(0, 60);
+    if (g) CONFIG.guest = g.includes("\n") ? g : g.replace(/ и /, "\nи ");
+  } catch (e) {}
+})();
 function fill() {
   $("i1").textContent = CONFIG.initials[0];
   $("i2").textContent = CONFIG.initials[1];
@@ -472,6 +479,23 @@ $("file").addEventListener("change", e => {
 });
 
 drawVines(); drawWreath(); fill();
+
+/* ===== Персональная ссылка: ?g=Имя гостя ===== */
+(function personalize() {
+  try {
+    let g = new URLSearchParams(location.search).get("g");
+    if (!g || !g.trim()) return;
+    g = g.trim().replace(/\s+/g, " ").slice(0, 70);
+    if (g.indexOf("\n") < 0) {
+      const m = g.match(/^(.+?)\s+(и\s+.+)$/i);   // «Ака Хаджи и его семью» -> две строки
+      if (m) g = m[1] + "\n" + m[2];
+    }
+    const box = $("t-guest");
+    box.textContent = g;
+    const longest = Math.max.apply(null, g.split("\n").map(l => l.length));
+    if (longest > 13) box.style.fontSize = Math.max(6, 10.5 * 13 / longest) + "cqw";
+  } catch (e) {}
+})();
 </script>
 </body>
 </html>
