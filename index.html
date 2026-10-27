@@ -188,10 +188,6 @@ body {
 .dots i { width: 1.2cqw; height: 1.2cqw; border-radius: 50%; background: rgba(183,221,247,.35); transition: background .4s, transform .4s; }
 .dots i.on { background: var(--gold); transform: scale(1.4); }
 .dots.dark i { background: rgba(63,127,181,.35); } .dots.dark i.on { background: var(--parchment-ink); }
-@media (prefers-reduced-motion: reduce) {
-  .scene.enter { animation-duration: .01s; }
-  .scene.active .rise, .s1.active .stem, .s1.active .leaf, .hint { animation-delay: 0s !important; animation-duration: .01s !important; }
-}
 @media (max-width: 600px) {
   body { padding: 0; display: block; }
   .stage { position: fixed; inset: 0; width: auto; height: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none; }
